@@ -2,9 +2,9 @@
 Scroll action page about COVID-19
 
 # Prerequisites
-    Node.js v10.16.3
+    Node.js V10.16.3
 
-    Vue v2.6.11
+    Vue V2.6.11
     
     Vue-cli V4.2.3
     
