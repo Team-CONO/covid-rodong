@@ -8,10 +8,14 @@ Scroll action page about COVID-19
     
     Vue-cli V4.2.3
     
-# Open-source library
+# Open-source libraries
 https://github.com/LeCoupa/vuedarkmode
 
     about darkmode
+    
+https://github.com/michalsnik/aos
+
+    about AOS
 
 # License
 This project is licensed under the MIT License - see the [covid-rodong/LICENSE](LICENSE)
