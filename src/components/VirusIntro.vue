@@ -1,6 +1,8 @@
 <template>
-  <div id="app">
-  HELLTAKER
+  <div id="app" class="covid">
+    <div class="intro">
+        <h2>코로나 바이러스란?</h2>
+    </div>
   </div>
 </template>
 
@@ -14,4 +16,19 @@ export default {
 </script>
 
 <style>
+div.covid {
+}
+div.intro {
+    background-image: url('../assets/covid.png');
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    vertical-align: middle;
+    line-height: 500px;
+}
+
+div.intro h2 {
+    text-align: center;
+}
 </style>
