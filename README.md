@@ -1,6 +1,10 @@
 # covid-rodong
 Scroll action page about COVID-19
 
+# Get Start
+    > yarn
+    > yarn serve
+
 # Prerequisites
     Node.js V10.16.3
 
