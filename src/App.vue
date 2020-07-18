@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <VirusIntro />
     <VirusSymptoms />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import VirusIntro from './components/VirusIntro.vue'
 import VirusSymptoms from './components/VirusSymptoms.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     VirusIntro,
     VirusSymptoms
   }
