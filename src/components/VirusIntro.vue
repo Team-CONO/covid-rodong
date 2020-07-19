@@ -4,7 +4,7 @@
     text-align: center;
     width: 100%;
 ">
-      <div class="intro" data-aos="zoom-out" v-tilt style="display: inline-block">
+      <div class="intro" data-aos="zoom-out" v-tilt style="display: inline-block; width: 50%">
         <h2><span class="focus">코로나</span> 바이러스란?</h2>
       </div>
     </div>
