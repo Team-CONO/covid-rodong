@@ -33,7 +33,10 @@
     margin-left: 6rem;
   }
   #left .text {
+    margin: 10px;
     visibility: hidden;
+    font-size: 3rem;
+    color: white;
   }
   #left .img {
     width: 500px; 
