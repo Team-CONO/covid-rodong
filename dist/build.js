@@ -13137,7 +13137,7 @@ exports.push([module.i, "span.focus{color:red;font-weight:700}div.info{text-alig
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/covid.png?7d628c594db4737ca6cc5078ca7fefc6";
+module.exports = "./dist/covid.png?7d628c594db4737ca6cc5078ca7fefc6";
 
 /***/ }),
 /* 18 */
@@ -13251,37 +13251,37 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* 24 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/icon-screening-cough.png?e20ecbabeaae3649348eecfb31505f6e";
+module.exports = "./dist/icon-screening-cough.png?e20ecbabeaae3649348eecfb31505f6e";
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/icon-screening-fever-chills.png?d1da47e201c70d7a002599ca2a4ff7a3";
+module.exports = "./dist/icon-screening-fever-chills.png?d1da47e201c70d7a002599ca2a4ff7a3";
 
 /***/ }),
 /* 26 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/icon-screening-headache.png?887665972f622d877719754a1f8fad2f";
+module.exports = "./dist/icon-screening-headache.png?887665972f622d877719754a1f8fad2f";
 
 /***/ }),
 /* 27 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/icon-screening-musclepain.png?c4e586cd3285653a49a119722e982d4c";
+module.exports = "./dist/icon-screening-musclepain.png?c4e586cd3285653a49a119722e982d4c";
 
 /***/ }),
 /* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/icon-screening-senses.png?1d2d433e3a3b514639c33c5291e37b1f";
+module.exports = "./dist/icon-screening-senses.png?1d2d433e3a3b514639c33c5291e37b1f";
 
 /***/ }),
 /* 29 */
 /***/ (function(module, exports) {
 
-module.exports = "./covid-rodong/dist/icon-screening-sorethroat.png?fe7003d92c948ea1bc556c13d8f6d0b6";
+module.exports = "./dist/icon-screening-sorethroat.png?fe7003d92c948ea1bc556c13d8f6d0b6";
 
 /***/ }),
 /* 30 */

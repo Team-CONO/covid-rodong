@@ -39,7 +39,7 @@ module.exports = {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: 'file-loader',
                 options: {
-                    publicPath: './covid-rodong/dist/',
+                    publicPath: './dist/',
                     name: '[name].[ext]?[hash]'
                 }
             }
