@@ -11,7 +11,11 @@
     "@growthbunker/vuedarkmode": "^0.5.56",
     "aos": "^3.0.0-beta.6",
     "core-js": "^3.6.4",
+    "jquery": "^3.5.1",
+    "tilt.js": "^1.2.1",
+    "vanilla-tilt": "^1.7.0",
     "vue": "^2.6.11",
+    "vue-tilt.js": "^1.1.1",
     "webpack": "^2.5.1"
   },
   "devDependencies": {
