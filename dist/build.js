@@ -13232,7 +13232,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "#left{float:left;margin-left:6rem}#left .text{visibility:hidden}#left .img{width:500px;height:500px;opacity:.5}#left:hover .img{opacity:1}#left:hover .text{visibility:visible}", ""]);
+exports.push([module.i, "#left{float:left;margin-left:6rem}#left .text{margin:10px;visibility:hidden;font-size:3rem;color:#fff}#left .img{width:500px;height:500px;opacity:.5}#left:hover .img{opacity:1}#left:hover .text{visibility:visible}", ""]);
 
 // exports
 
