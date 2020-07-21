@@ -2,18 +2,21 @@
   <div id="app">
     <VirusIntro />
     <VirusSymptoms />
+    <ThanksChallenge />
   </div>
 </template>
 
 <script>
 import VirusIntro from './components/VirusIntro.vue'
 import VirusSymptoms from './components/VirusSymptoms.vue'
+import ThanksChallenge from './components/ThanksChallenge.vue'
 
 export default {
   name: 'App',
   components: {
     VirusIntro,
-    VirusSymptoms
+    VirusSymptoms,
+    ThanksChallenge
   }
 }
 </script>
@@ -28,6 +31,6 @@ export default {
   margin-top: 60px;
 }
 body{
-  background-color: #171E29;
+  background-color: #18191A;
 }
 </style>
