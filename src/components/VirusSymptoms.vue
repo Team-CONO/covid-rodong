@@ -1,52 +1,55 @@
 <template>
-  <article>
-    <section id="left" data-aos="fade-down">
-      <img class="img" src="../assets/icon-screening-cough.png" alt="a img">
-      <p class="text">기침, 마른기침</p>
+  <article id="app">
+    <section class="part" data-aos="fade-down">
+      <div>      
+        <img class ="img" src="../assets/icon-screening-cough.png" alt="Cough img">
+        <p>기침, 마른기침</p>
+      </div>
+      <div>
+        <img src="../assets/icon-screening-fever-chills.png" alt="Feverr img">
+        <p>발열 또는 오한</p>
+      </div>
+      <div>
+        <img src="../assets/icon-screening-headache.png" alt="Headache img">
+        <p>두통</p>
+      </div>
     </section>
-    <section id="left" data-aos="fade-down">
-      <img class="img" src="../assets/icon-screening-fever-chills.png" alt="b img">
-      <p class="text">발열 또는 오한</p>
-    </section>
-    <section id="left" data-aos="fade-down">
-      <img class="img" src="../assets/icon-screening-headache.png" alt="c img">
-      <p class="text">두통</p>
-    </section>
-    <section id="left" data-aos='fade-up'>
-      <img class="img" src="../assets/icon-screening-musclepain.png" alt="d img">
-      <p class="text">근육통 또는 몸살</p>
-    </section>
-    <section id="left" data-aos='fade-up'>
-      <img class="img" src="../assets/icon-screening-senses.png" alt="e img">
-      <p class="text">미각 또는 후각 상실</p>
-    </section>
-    <section id="left" data-aos='fade-up'>
-      <img class="img" src="../assets/icon-screening-sorethroat.png" alt="f img">
-      <p class="text">목 아픔</p>
+    <section class="part" data-aos="fade-up">
+      <div>
+        <img src="../assets/icon-screening-musclepain.png" alt="Muscle or body aches img">
+        <p>근육통 또는 몸살</p>
+      </div>
+      <div>
+        <img src="../assets/icon-screening-senses.png" alt="New loss of taste or smell img">
+        <p>미각 또는 후각 상실</p>
+      </div>
+      <div>
+        <img src="../assets/icon-screening-sorethroat.png" alt="Sore throat img">
+        <p>목 아픔</p>
+      </div>
     </section>
   </article>
 </template>
 
 <style>
-  #left {
-    float: left;
-    margin-left: 6rem;
-  }
-  #left .text {
-    margin: 10px;
-    visibility: hidden;
-    font-size: 3rem;
-    color: white;
-  }
-  #left .img {
-    width: 500px; 
-    height: 500px;
-    opacity: 0.5;
-  }
-  #left:hover .img {
-    opacity: 1.0;
-  }
-  #left:hover .text {
-    visibility: visible;
-  }
+.part {
+  display: inline-flex;
+  margin-bottom: 5%;
+}
+.part img {
+  width: 500px;
+  opacity: 0.5;
+}
+.part:hover img {
+  opacity: 1.0;
+}
+.part p {
+  visibility: hidden;
+  font-size: 2rem;
+  color: white;
+  margin: 10px;
+}
+.part:hover p {
+  visibility: visible;
+}
 </style>
