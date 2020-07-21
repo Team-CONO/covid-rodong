@@ -2,29 +2,29 @@
   <article id="app">
     <section class="part" data-aos="fade-down">
       <div>      
-        <img class ="img" src="../assets/icon-screening-cough.png" alt="a img">
+        <img class ="img" src="../assets/icon-screening-cough.png" alt="Cough img">
         <p>기침, 마른기침</p>
       </div>
       <div>
-        <img src="../assets/icon-screening-fever-chills.png" alt="b img">
+        <img src="../assets/icon-screening-fever-chills.png" alt="Feverr img">
         <p>발열 또는 오한</p>
       </div>
       <div>
-        <img src="../assets/icon-screening-headache.png" alt="c img">
+        <img src="../assets/icon-screening-headache.png" alt="Headache img">
         <p>두통</p>
       </div>
     </section>
     <section class="part" data-aos="fade-up">
       <div>
-        <img src="../assets/icon-screening-musclepain.png" alt="d img">
+        <img src="../assets/icon-screening-musclepain.png" alt="Muscle or body aches img">
         <p>근육통 또는 몸살</p>
       </div>
       <div>
-        <img src="../assets/icon-screening-senses.png" alt="e img">
+        <img src="../assets/icon-screening-senses.png" alt="New loss of taste or smell img">
         <p>미각 또는 후각 상실</p>
       </div>
       <div>
-        <img src="../assets/icon-screening-sorethroat.png" alt="f img">
+        <img src="../assets/icon-screening-sorethroat.png" alt="Sore throat img">
         <p>목 아픔</p>
       </div>
     </section>
