@@ -91,11 +91,16 @@
                        sortRegions.map(item =>
                            item.code = this.REGIONS[item.region])
                        console.log('sorted', sortRegions);
+                       const sortDict = {}
+                       const palette = ['#ff0000', '#ff4000', '##ff8000', '#ffcccc','#ffbf00','#ffff00','#bfff00',
+                           '#80ff00','#40ff00','#00ff00','#00ff40','#00ff80','#00ffbf','#0000ff','#0040ff','#0080ff','#00bfff','#00ffff'];
+                       sortRegions.forEach((i, index) => {
+                           // console.log('test', i, index)
+                           sortDict[i.code || 'temp'] = palette[index]
+                       })
+                        console.log('sortDict',sortDict);
                         $('#world-map').vectorMap('get','mapObject').series.regions[0]
-                            .setValues({
-                                'KR-26': '#444444',
-                                'KR-27': '#111111'
-                            })
+                            .setValues(sortDict)
                     });
             },
             getLastData: function(data) {
