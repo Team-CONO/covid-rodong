@@ -24,7 +24,8 @@
                 INDEX_REGION: 1,
                 INDEX_CONFIRM: 2,
                 INDEX_DEATH: 3,
-                INDEX_RELEASED: 4
+                INDEX_RELEASED: 4,
+
             }
         },
         mounted() {
@@ -35,9 +36,21 @@
 
         methods: {
             initMap: function() {
-                $('#world-map').vectorMap({
+                const vectorMap = $('#world-map').vectorMap({
                     map: 'kr_mill',
+                    backgroundColor: 'none',
+                    series: {
+                        regions: [{
+                            attribute: 'fill',
+                            values: {
+                                'KR-26': '#4E7387',
+                                'KR-27': '#0071A4'
+                            }
+                        }]
+                    },
                 });
+                console.log($('#world-map').vectorMap('get','mapObject'))
+
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
