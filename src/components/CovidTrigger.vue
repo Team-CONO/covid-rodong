@@ -1,7 +1,6 @@
 <template>
   <div id="app" class="Trigger">
-    <div class="dump"> </div>
-    <div data-aos="fade-up" class="intro">
+    <div  data-aos="zoom-in"  class="triggerimage">
     </div>
     <div data-aos="fade-right" class="trigger">SARS-CoV-2바이러스는 MERS-CoV 및 SARS-CoV와 같은 <span class="focus">베타코로나바이러스</span>입니다.
     <span data-aos="fade-right">이전의 두 바이러스는 모두 <span class="focus">박쥐</span>에서 기원했습니다.</span></div>
@@ -36,7 +35,7 @@ div.dump {
     height: 300px;
     line-height: 300px;
 }
-div.intro {
+div.triggerimage {
     background-image: url('../assets/bat.png');
     height: 600px;
     background-repeat: no-repeat;

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <VirusIntro />
+    <CovidTrigger />
     <VirusSymptoms />
     <Guideline />
     <ThanksChallenge />
@@ -12,11 +13,13 @@ import VirusIntro from './components/VirusIntro.vue'
 import VirusSymptoms from './components/VirusSymptoms.vue'
 import ThanksChallenge from './components/ThanksChallenge.vue'
 import Guideline from "./components/Guideline";
+import CovidTrigger from "./components/CovidTrigger";
 
 export default {
   name: 'App',
   components: {
     VirusIntro,
+    CovidTrigger,
     VirusSymptoms,
     ThanksChallenge,
     Guideline
