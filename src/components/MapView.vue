@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <div class="map-wrapper">
-            <div id="world-map"></div>
+        <div class="map-wrapper" style="height: 500px">
+            <div id="world-map" style="height: 500px;"></div>
         </div>
     </div>
 </template>
@@ -14,10 +14,27 @@
     require('../assets/jquery-jvectormap-2.0.5/jquery-jvectormap-kr-mill');
     export default {
         name: "MapView",
+        data () {
+            return {
+            }
+        },
         mounted() {
             $('#world-map').vectorMap({
-                map: 'kr_mill'
+                map: 'kr_mill',
             });
+            $('$world-map').vectorMap('get','mapObject').updateSize();
+
+            this.getCovidData();
+        },
+
+        methods: {
+          getCovidData: function () {
+              $.ajax({
+                  url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
+              }).done((data) => {
+                  console.log('data', data);
+              });
+          }
         }
     }
 </script>

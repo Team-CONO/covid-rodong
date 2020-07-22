@@ -3,9 +3,9 @@
     <VirusIntro />
     <CovidTrigger />
     <VirusSymptoms />
+    <MapView />
     <Guideline />
     <ThanksChallenge />
-    <MapView />
   </div>
 </template>
 
