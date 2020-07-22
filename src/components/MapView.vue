@@ -26,6 +26,25 @@
                 INDEX_DEATH: 3,
                 INDEX_RELEASED: 4,
 
+                REGIONS: {
+                    '강원': 'KR-42',
+                    '경기': 'KR-41',
+                    '경남': 'KR-48',
+                    '경북': 'KR-47',
+                    '광주': 'KR-29',
+                    '대구': 'KR-27',
+                    '대전': 'KR-30',
+                    '부산': 'KR-26',
+                    '서울': 'KR-11',
+                    '세종': 'KR-50',
+                    '울산': 'KR-31',
+                    '인천': 'KR-28',
+                    '전남': 'KR-46',
+                    '전북': 'KR-45',
+                    '제주': 'KR-49',
+                    '충남': 'KR-44',
+                    '충북': 'KR-43'
+                }
             }
         },
         mounted() {
@@ -64,6 +83,14 @@
                     .then(data => {
                        console.log('promise data', data);
                        console.log('last key', this.getLastData(data));
+                       const latestData = this.getLastData(data);
+                       const regions = Object.keys(latestData);
+                       const sortRegions = [];
+                       regions.forEach(i => sortRegions.push(latestData[i]))
+                        sortRegions.sort((a, b) => b.confirm - a.confirm);
+                       sortRegions.map(item =>
+                           item.code = this.REGIONS[item.region])
+                       console.log('sorted', sortRegions);
                         $('#world-map').vectorMap('get','mapObject').series.regions[0]
                             .setValues({
                                 'KR-26': '#444444',
