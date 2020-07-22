@@ -64,9 +64,9 @@
                       this.data[i[this.INDEX_DATE]][i[this.INDEX_REGION]] = {
                           date: i[this.INDEX_DATE],
                           region: i[this.INDEX_REGION],
-                          confirm: i[this.INDEX_CONFIRM],
-                          death: i[this.INDEX_DEATH],
-                          released: [this.INDEX_RELEASED]
+                          confirm: Number(i[this.INDEX_CONFIRM]),
+                          death: Number(i[this.INDEX_DEATH]),
+                          released: Number(i[this.INDEX_RELEASED])
                       }
                   })
                   console.log('data', this.data);
