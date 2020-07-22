@@ -3,7 +3,7 @@ Scroll action page about COVID-19
 
 # Get Start
     > yarn
-    > yarn serve
+    > yarn serve-webpack
 
 # Prerequisites
     Node.js V10.16.3
