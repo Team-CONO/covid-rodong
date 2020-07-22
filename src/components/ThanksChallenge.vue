@@ -8,10 +8,21 @@
         </div>
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-12 col-md-4">
-                <img src="../assets/thanks.png" alt="Thanks challenge img">
+            <div class="col-12 col-md-4 tyImg">
             </div>
             <div class="col-md-4"></div>
         </div>
     </article>
 </template>
+
+
+<style>
+    .tyImg {
+        background-image: url("../assets/thanks.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 100%;
+        height: 500px;
+    }
+</style>
