@@ -61,6 +61,15 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     // plugins: [new UglifyJsPlugin()]
+    // http://blog.naver.com/PostView.nhn?blogId=psj9102&logNo=221042506598&parentCategoryNo=&categoryNo=44&viewDate=&isShowPopularPosts=false&from=postView
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jquery: 'jquery',
+            'window.jQuery': 'jquery',
+            jQuery: 'jquery'
+        })
+    ]
 }
 
 if (process.env.NODE_ENV === 'production') {

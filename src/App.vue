@@ -5,6 +5,7 @@
     <VirusSymptoms />
     <Guideline />
     <ThanksChallenge />
+    <MapView />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import VirusSymptoms from './components/VirusSymptoms.vue'
 import ThanksChallenge from './components/ThanksChallenge.vue'
 import Guideline from "./components/Guideline";
 import CovidTrigger from "./components/CovidTrigger";
+import MapView from "./components/MapView";
 
 export default {
   name: 'App',
@@ -22,7 +24,8 @@ export default {
     CovidTrigger,
     VirusSymptoms,
     ThanksChallenge,
-    Guideline
+    Guideline,
+    MapView
   }
 }
 </script>
