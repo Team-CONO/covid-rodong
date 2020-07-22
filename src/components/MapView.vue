@@ -87,7 +87,16 @@
                     });
                 });
 
-          }
+          },
+        setupColor: function() {
+                var palette = ['#66C2A5', '#FC8D62', '#8DA0CB', '#E78AC3', '#A6D854'];
+                var colors = {}, key;
+                
+                for (key in map.regions) {
+                    colors[key] = palette[Math.floor(Math.random()*palette.length)];
+                }
+                return colors;
+            }
         }
     }
 </script>
