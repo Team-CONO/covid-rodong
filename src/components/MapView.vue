@@ -19,15 +19,21 @@
             }
         },
         mounted() {
-            $('#world-map').vectorMap({
-                map: 'kr_mill',
-            });
-            $('$world-map').vectorMap('get','mapObject').updateSize();
-
+            this.$nextTick(this.initMap);
             this.getCovidData();
         },
 
         methods: {
+            initMap: function() {
+                $('#world-map').vectorMap({
+                    map: 'kr_mill',
+                });
+                $('#world-map').vectorMap('get','mapObject').updateSize();
+                $('#world-map').vectorMap('get','mapObject').updateSize();
+                $('#world-map').vectorMap('get','mapObject').updateSize();
+                $('#world-map').vectorMap('get','mapObject').updateSize();
+                $('#world-map').vectorMap('get','mapObject').updateSize();
+            },
           getCovidData: function () {
               $.ajax({
                   url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
