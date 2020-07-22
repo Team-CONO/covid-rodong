@@ -1,5 +1,8 @@
 <template>
   <article id="app" class="container">
+    <div class="part" data-aos="zoom-out">
+      <h2 style="color:white">코로나 바이러스 증상</h2>
+    </div>
     <section class="part row" data-aos="fade-down">
       <div class="col-12 col-md-4">
         <img class ="img" src="../assets/icon-screening-cough.png" alt="Cough img">
@@ -34,7 +37,7 @@
 <style>
 .part {
   /*display: inline-flex;*/
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 .part img {
   width: 100%;

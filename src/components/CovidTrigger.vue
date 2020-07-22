@@ -1,5 +1,8 @@
 <template>
   <div id="app" class="Trigger">
+    <div class="part" data-aos="zoom-out">
+      <h2 style="color:white">코로나 바이러스 시발점</h2>
+    </div>
     <div  data-aos="zoom-in"  class="triggerimage">
     </div>
     <div data-aos="fade-right" class="trigger">SARS-CoV-2바이러스는 MERS-CoV 및 SARS-CoV와 같은 <span class="focus">베타코로나바이러스</span>입니다.
