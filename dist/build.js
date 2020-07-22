@@ -60666,7 +60666,7 @@ var content = __webpack_require__(267);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("679c40f3", content, true, {});
+var update = __webpack_require__(33)("d6f66b34", content, true, {});
 
 /***/ }),
 /* 267 */
@@ -60800,7 +60800,7 @@ var content = __webpack_require__(272);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("930295e8", content, true, {});
+var update = __webpack_require__(33)("525ad5a8", content, true, {});
 
 /***/ }),
 /* 272 */
@@ -60904,7 +60904,7 @@ var content = __webpack_require__(278);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("dfbb712e", content, true, {});
+var update = __webpack_require__(33)("de5e196e", content, true, {});
 
 /***/ }),
 /* 278 */
@@ -60915,7 +60915,7 @@ exports = module.exports = __webpack_require__(24)(undefined);
 
 
 // module
-exports.push([module.i, ".part{margin-bottom:5%}.part img{width:100%;opacity:.5}.part:hover img{opacity:1}.part p{visibility:hidden;font-size:2rem;color:#fff;margin:10px}.part:hover p{visibility:visible}", ""]);
+exports.push([module.i, ".part{margin-bottom:10%}.part img{width:100%;opacity:.5}.part:hover img{opacity:1}.part p{visibility:hidden;font-size:2rem;color:#fff;margin:10px}.part:hover p{visibility:visible}", ""]);
 
 // exports
 
@@ -60926,7 +60926,7 @@ exports.push([module.i, ".part{margin-bottom:5%}.part img{width:100%;opacity:.5}
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{staticClass:"container",attrs:{"id":"app"}},[_c('section',{staticClass:"part row",attrs:{"data-aos":"fade-down"}},[_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{staticClass:"img",attrs:{"src":__webpack_require__(280),"alt":"Cough img"}}),_vm._v(" "),_c('p',[_vm._v("기침, 마른기침")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(281),"alt":"Feverr img"}}),_vm._v(" "),_c('p',[_vm._v("발열 또는 오한")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(282),"alt":"Headache img"}}),_vm._v(" "),_c('p',[_vm._v("두통")])])]),_vm._v(" "),_c('section',{staticClass:"part row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(283),"alt":"Muscle or body aches img"}}),_vm._v(" "),_c('p',[_vm._v("근육통 또는 몸살")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(284),"alt":"New loss of taste or smell img"}}),_vm._v(" "),_c('p',[_vm._v("미각 또는 후각 상실")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(285),"alt":"Sore throat img"}}),_vm._v(" "),_c('p',[_vm._v("목 아픔")])])])])}]
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{staticClass:"container",attrs:{"id":"app"}},[_c('div',{staticClass:"part",attrs:{"data-aos":"zoom-out"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("코로나 바이러스 증상")])]),_vm._v(" "),_c('section',{staticClass:"part row",attrs:{"data-aos":"fade-down"}},[_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{staticClass:"img",attrs:{"src":__webpack_require__(280),"alt":"Cough img"}}),_vm._v(" "),_c('p',[_vm._v("기침, 마른기침")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(281),"alt":"Feverr img"}}),_vm._v(" "),_c('p',[_vm._v("발열 또는 오한")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(282),"alt":"Headache img"}}),_vm._v(" "),_c('p',[_vm._v("두통")])])]),_vm._v(" "),_c('section',{staticClass:"part row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(283),"alt":"Muscle or body aches img"}}),_vm._v(" "),_c('p',[_vm._v("근육통 또는 몸살")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(284),"alt":"New loss of taste or smell img"}}),_vm._v(" "),_c('p',[_vm._v("미각 또는 후각 상실")])]),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4"},[_c('img',{attrs:{"src":__webpack_require__(285),"alt":"Sore throat img"}}),_vm._v(" "),_c('p',[_vm._v("목 아픔")])])])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -61008,7 +61008,7 @@ var content = __webpack_require__(288);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("6ee5f114", content, true, {});
+var update = __webpack_require__(33)("02cdb618", content, true, {});
 
 /***/ }),
 /* 288 */
@@ -61036,7 +61036,7 @@ module.exports = "./dist/thanks.png?2bab7f3c3bbcbb7d45ac7810332036e4";
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{staticClass:"container",attrs:{"id":"app","data-aos":"zoom-in"}},[_c('div',{staticClass:"row"},[_c('iframe',{staticClass:"col-12",attrs:{"height":"500","src":"https://www.youtube.com/embed/o-i6jw1t8Yk"}})]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-4"}),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4 tyImg"}),_vm._v(" "),_c('div',{staticClass:"col-md-4"})])])}]
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{staticClass:"container",attrs:{"id":"app","data-aos":"zoom-in"}},[_c('div',{staticClass:"part",attrs:{"data-aos":"zoom-in"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("덕분에 챌린지 참여하기")])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('iframe',{staticClass:"col-12",attrs:{"height":"500","src":"https://www.youtube.com/embed/o-i6jw1t8Yk"}})]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-4"}),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-4 tyImg"}),_vm._v(" "),_c('div',{staticClass:"col-md-4"})])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -61083,7 +61083,7 @@ var content = __webpack_require__(293);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("1ffe4704", content, true, {});
+var update = __webpack_require__(33)("739de2e4", content, true, {});
 
 /***/ }),
 /* 293 */
@@ -61220,7 +61220,7 @@ var content = __webpack_require__(301);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("a88bada4", content, true, {});
+var update = __webpack_require__(33)("0696814e", content, true, {});
 
 /***/ }),
 /* 301 */
@@ -61258,6 +61258,9 @@ module.exports = "./dist/bat.png?e9cb8578e97619de6a779b77d0739cd5";
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'CovidTrigger',
@@ -61272,7 +61275,7 @@ module.exports = "./dist/bat.png?e9cb8578e97619de6a779b77d0739cd5";
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Trigger",attrs:{"id":"app"}},[_c('div',{staticClass:"triggerimage",attrs:{"data-aos":"zoom-in"}}),_vm._v(" "),_c('div',{staticClass:"trigger",attrs:{"data-aos":"fade-right"}},[_vm._v("SARS-CoV-2바이러스는 MERS-CoV 및 SARS-CoV와 같은 "),_c('span',{staticClass:"focus"},[_vm._v("베타코로나바이러스")]),_vm._v("입니다.\n  "),_c('span',{attrs:{"data-aos":"fade-right"}},[_vm._v("이전의 두 바이러스는 모두 "),_c('span',{staticClass:"focus"},[_vm._v("박쥐")]),_vm._v("에서 기원했습니다.")])]),_vm._v(" "),_c('div',{staticClass:"trigger",attrs:{"data-aos":"fade-up"}},[_vm._v("박쥐의 코로나 바이러스와 기원이 알려지지 않은 코로나 바이러스 사이의 "),_c('span',{staticClass:"focus"},[_vm._v("재조합")]),_vm._v("에서 유래했을 것으로 "),_c('span',{staticClass:"focus"},[_vm._v("추측")]),_vm._v("되지만 아직 확인되지 않았습니다.")]),_vm._v(" "),_c('div',{staticClass:"info"})])}]
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Trigger",attrs:{"id":"app"}},[_c('div',{staticClass:"part",attrs:{"data-aos":"zoom-out"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("코로나 바이러스 시발점")])]),_vm._v(" "),_c('div',{staticClass:"triggerimage",attrs:{"data-aos":"zoom-in"}}),_vm._v(" "),_c('div',{staticClass:"trigger",attrs:{"data-aos":"fade-right"}},[_vm._v("SARS-CoV-2바이러스는 MERS-CoV 및 SARS-CoV와 같은 "),_c('span',{staticClass:"focus"},[_vm._v("베타코로나바이러스")]),_vm._v("입니다.\n  "),_c('span',{attrs:{"data-aos":"fade-right"}},[_vm._v("이전의 두 바이러스는 모두 "),_c('span',{staticClass:"focus"},[_vm._v("박쥐")]),_vm._v("에서 기원했습니다.")])]),_vm._v(" "),_c('div',{staticClass:"trigger",attrs:{"data-aos":"fade-up"}},[_vm._v("박쥐의 코로나 바이러스와 기원이 알려지지 않은 코로나 바이러스 사이의 "),_c('span',{staticClass:"focus"},[_vm._v("재조합")]),_vm._v("에서 유래했을 것으로 "),_c('span',{staticClass:"focus"},[_vm._v("추측")]),_vm._v("되지만 아직 확인되지 않았습니다.")]),_vm._v(" "),_c('div',{staticClass:"info"})])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -61319,7 +61322,7 @@ var content = __webpack_require__(307);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(33)("182cdc6c", content, true, {});
+var update = __webpack_require__(33)("3cc1f04c", content, true, {});
 
 /***/ }),
 /* 307 */
@@ -61349,6 +61352,9 @@ exports.push([module.i, "", ""]);
 //
 //
 
+// https://github.com/jooeungen/coronaboard_kr/blob/master/kr_regional_daily.csv
+// https://jvectormap.com/maps/countries/south-korea/
+// https://smarttutorials.net/how-to-integrate-jvectormap-with-vuejs-using-vuecli-jquery/
 __webpack_require__(118);
 __webpack_require__(309);
 /* harmony default export */ __webpack_exports__["a"] = ({
