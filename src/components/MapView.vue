@@ -51,7 +51,7 @@
             // this.$nextTick(this.initMap);
             this.initMap();
             this.getCovidData();
-            this.setupColor();
+            // this.setupColor();
         },
 
         methods: {
@@ -62,10 +62,10 @@
                     series: {
                         regions: [{
                             attribute: 'fill',
-                            values: {
-                                'KR-26': '#4E7387',
-                                'KR-27': '#0071A4'
-                            }
+                            // values: {
+                            //     'KR-26': '#4E7387',
+                            //     'KR-27': '#0071A4'
+                            // }
                         }]
                     },
                 });
@@ -91,6 +91,7 @@
                        sortRegions.map(item =>
                            item.code = this.REGIONS[item.region])
                        console.log('sorted', sortRegions);
+
                        const sortDict = {}
                        const palette = ['#ff0000', '#ff4000', '##ff8000', '#ffcccc','#ffbf00','#ffff00','#bfff00',
                            '#80ff00','#40ff00','#00ff00','#00ff40','#00ff80','#00ffbf','#0000ff','#0040ff','#0080ff','#00bfff','#00ffff'];
@@ -101,6 +102,7 @@
                         console.log('sortDict',sortDict);
                         $('#world-map').vectorMap('get','mapObject').series.regions[0]
                             .setValues(sortDict)
+
                     });
             },
             getLastData: function(data) {
@@ -142,17 +144,17 @@
                 });
 
             },
-            setupColor: function() {
-                var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
-                // var colors = {}, key;
+            // setupColor: function() {
+            //     var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
+            //     // var colors = {}, key;
 
-                // for (key in this.getLastData) {
-                //     colors[key] = palette[Math.floor(Math.random()*palette.length)];
-                // }
-                var color = palette[Math.floor(Math.random()*palette.length)];
+            //     // for (key in this.getLastData) {
+            //     //     colors[key] = palette[Math.floor(Math.random()*palette.length)];
+            //     // }
+            //     var color = palette[Math.floor(Math.random()*palette.length)];
 
-                return color;
-            }
+            //     return color;
+            // }
         }
     }
 </script>
