@@ -44,15 +44,15 @@
                         regions: [{
                             attribute: 'fill',
                             values: {
-                                // 'KR-26': '#4E7387',
-                                // 'KR-27': '#0071A4'
+                                'KR-26': '#4E7387',
+                                'KR-27': '#0071A4'
                             }
                         }]
                     },
                 });
-                for (let index = 0; index < 17; index++) {
-                    vectorMap.series.regions[index].setValues(this.setupColor());
-                }
+                // for (let index = 0; index < 17; index++) {
+                //     vectorMap.series.regions[index].setValues(this.setupColor());
+                // }
                 console.log($('#world-map').vectorMap('get','mapObject'))
 
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
@@ -64,6 +64,11 @@
                     .then(data => {
                        console.log('promise data', data);
                        console.log('last key', this.getLastData(data));
+                        $('#world-map').vectorMap('get','mapObject').series.regions[0]
+                            .setValues({
+                                'KR-26': '#444444',
+                                'KR-27': '#111111'
+                            })
                     });
             },
             getLastData: function(data) {
