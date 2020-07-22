@@ -47,5 +47,6 @@ div.intro {
 
 div.intro h2 {
     text-align: center;
+    line-height: 500px;
 }
 </style>
