@@ -51,7 +51,7 @@
             // this.$nextTick(this.initMap);
             this.initMap();
             this.getCovidData();
-            this.setupColor();
+            // this.setupColor();
         },
 
         methods: {
@@ -62,10 +62,10 @@
                     series: {
                         regions: [{
                             attribute: 'fill',
-                            values: {
-                                'KR-26': '#4E7387',
-                                'KR-27': '#0071A4'
-                            }
+                            // values: {
+                            //     'KR-26': '#4E7387',
+                            //     'KR-27': '#0071A4'
+                            // }
                         }]
                     },
                 });
@@ -81,6 +81,7 @@
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
                 this.getCovidData()
                     .then(data => {
+                        var palette = ['#ff0000', '#ff9900', '#ffff00', '#ffcccc'];
                        console.log('promise data', data);
                        console.log('last key', this.getLastData(data));
                        const latestData = this.getLastData(data);
@@ -91,11 +92,25 @@
                        sortRegions.map(item =>
                            item.code = this.REGIONS[item.region])
                        console.log('sorted', sortRegions);
-                        $('#world-map').vectorMap('get','mapObject').series.regions[0]
-                            .setValues({
-                                'KR-26': '#444444',
-                                'KR-27': '#111111'
-                            })
+                       var ch = 0;
+                       for (let index = 1; index < sortRegions.length; index++) {
+                           if(index % 4 == 0)
+                           {
+                               ch+=1;
+                                $('#world-map').vectorMap('get','mapObject').series.regions[0]
+                                .setValues({
+                                        // sortRegions.code: palette[ch]
+                                    });
+                           }
+                           else
+                           {
+                                $('#world-map').vectorMap('get','mapObject').series.regions[0]
+                                .setValues({
+                                        // sortRegions.code: palette[ch]
+                                    });
+                           }
+                           
+                       }
                     });
             },
             getLastData: function(data) {
@@ -137,17 +152,17 @@
                 });
 
             },
-            setupColor: function() {
-                var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
-                // var colors = {}, key;
+            // setupColor: function() {
+            //     var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
+            //     // var colors = {}, key;
 
-                // for (key in this.getLastData) {
-                //     colors[key] = palette[Math.floor(Math.random()*palette.length)];
-                // }
-                var color = palette[Math.floor(Math.random()*palette.length)];
+            //     // for (key in this.getLastData) {
+            //     //     colors[key] = palette[Math.floor(Math.random()*palette.length)];
+            //     // }
+            //     var color = palette[Math.floor(Math.random()*palette.length)];
 
-                return color;
-            }
+            //     return color;
+            // }
         }
     }
 </script>
