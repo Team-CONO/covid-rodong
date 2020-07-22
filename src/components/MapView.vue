@@ -46,7 +46,12 @@
                 this.getCovidData()
                     .then(data => {
                        console.log('promise data', data);
+                       console.log('last key', this.getLastData(data));
                     });
+            },
+            getLastData: function(data) {
+                const keys = Object.keys(data);
+                return data[keys[keys.length - 1]];
             },
           getCovidData: function () {
                 return new Promise((resolve, reject) => {
