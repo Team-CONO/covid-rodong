@@ -1,5 +1,8 @@
 <template>
     <div id="app" class="container">
+        <div class="part" data-aos="flip-down">
+            <h2 style="color:white">대한민국 코로나 바이러스 현황</h2>
+        </div>
         <div class="map-wrapper row" style="height: 500px">
             <div class="col-md-1"></div>
             <div id="world-map" class="col-12 col-md-10" style="height: 500px;"></div>
@@ -48,10 +51,8 @@
             }
         },
         mounted() {
-            // this.$nextTick(this.initMap);
             this.initMap();
             this.getCovidData();
-            // this.setupColor();
         },
 
         methods: {
@@ -62,10 +63,6 @@
                     series: {
                         regions: [{
                             attribute: 'fill',
-                            // values: {
-                            //     'KR-26': '#4E7387',
-                            //     'KR-27': '#0071A4'
-                            // }
                         }]
                     },
                 });
@@ -74,11 +71,6 @@
                 // }
                 console.log($('#world-map').vectorMap('get','mapObject'))
 
-                // $('#world-map').vectorMap('get','mapObject').updateSize();
-                // $('#world-map').vectorMap('get','mapObject').updateSize();
-                // $('#world-map').vectorMap('get','mapObject').updateSize();
-                // $('#world-map').vectorMap('get','mapObject').updateSize();
-                // $('#world-map').vectorMap('get','mapObject').updateSize();
                 this.getCovidData()
                     .then(data => {
                        console.log('promise data', data);
@@ -102,7 +94,6 @@
                         console.log('sortDict',sortDict);
                         $('#world-map').vectorMap('get','mapObject').series.regions[0]
                             .setValues(sortDict)
-
                     });
             },
             getLastData: function(data) {
@@ -144,20 +135,6 @@
                 });
 
             },
-            // setupColor: function() {
-            //     var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
-            //     // var colors = {}, key;
-
-            //     // for (key in this.getLastData) {
-            //     //     colors[key] = palette[Math.floor(Math.random()*palette.length)];
-            //     // }
-            //     var color = palette[Math.floor(Math.random()*palette.length)];
-
-            //     return color;
-            // }
         }
     }
 </script>
-
-<style scoped>
-</style>

@@ -11,11 +11,11 @@
 
 <script>
 import VirusIntro from './components/VirusIntro.vue'
-import VirusSymptoms from './components/VirusSymptoms.vue'
-import ThanksChallenge from './components/ThanksChallenge.vue'
-import Guideline from "./components/Guideline";
 import CovidTrigger from "./components/CovidTrigger";
+import VirusSymptoms from './components/VirusSymptoms.vue'
 import MapView from "./components/MapView";
+import Guideline from "./components/Guideline";
+import ThanksChallenge from './components/ThanksChallenge.vue'
 
 export default {
   name: 'App',
@@ -23,9 +23,9 @@ export default {
     VirusIntro,
     CovidTrigger,
     VirusSymptoms,
-    ThanksChallenge,
+    MapView,
     Guideline,
-    MapView
+    ThanksChallenge,
   }
 }
 </script>
@@ -39,7 +39,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-body{
+body {
   background-color: #18191A;
 }
 

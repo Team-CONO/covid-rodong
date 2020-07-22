@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="Trigger">
-    <div class="part" data-aos="zoom-out">
+    <div class="part" data-aos="flip-up">
       <h2 style="color:white">코로나 바이러스 시발점</h2>
     </div>
     <div  data-aos="zoom-in"  class="triggerimage">
