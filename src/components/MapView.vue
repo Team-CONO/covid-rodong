@@ -44,12 +44,15 @@
                         regions: [{
                             attribute: 'fill',
                             values: {
-                                'KR-26': '#4E7387',
-                                'KR-27': '#0071A4'
+                                // 'KR-26': '#4E7387',
+                                // 'KR-27': '#0071A4'
                             }
                         }]
                     },
                 });
+                for (let index = 0; index < 17; index++) {
+                    vectorMap.series.regions[index].setValues(this.setupColor());
+                }
                 console.log($('#world-map').vectorMap('get','mapObject'))
 
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
@@ -104,11 +107,14 @@
             },
             setupColor: function() {
                 var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
-                var colors = {}, key;
+                // var colors = {}, key;
 
-                for (key in this.getLastData) {
-                    colors[key] = palette[Math.floor(Math.random()*palette.length)];
-                }
+                // for (key in this.getLastData) {
+                //     colors[key] = palette[Math.floor(Math.random()*palette.length)];
+                // }
+                var color = palette[Math.floor(Math.random()*palette.length)];
+
+                return color;
             }
         }
     }
