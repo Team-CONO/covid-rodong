@@ -18,6 +18,13 @@
         name: "MapView",
         data () {
             return {
+                data: {},
+
+                INDEX_DATE: 0,
+                INDEX_REGION: 1,
+                INDEX_CONFIRM: 2,
+                INDEX_DEATH: 3,
+                INDEX_RELEASED: 4
             }
         },
         mounted() {
@@ -41,7 +48,28 @@
               $.ajax({
                   url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
               }).done((data) => {
-                  console.log('data', data);
+                  if (!data) {
+                      return;
+                  }
+                  const splitedData = data.split('\n');
+                  const splitedDataLen = splitedData.length;
+                  const parsedData = splitedData.splice(1, splitedDataLen).map(i => i.split(','))
+                  parsedData.forEach(i => {
+                      if (i[this.INDEX_DATE] === '') {
+                          return;
+                      }
+                      if (!this.data.hasOwnProperty(i[this.INDEX_DATE])) {
+                          this.data[i[this.INDEX_DATE]] = {};
+                      }
+                      this.data[i[this.INDEX_DATE]][i[this.INDEX_REGION]] = {
+                          date: i[this.INDEX_DATE],
+                          region: i[this.INDEX_REGION],
+                          confirm: i[this.INDEX_CONFIRM],
+                          death: i[this.INDEX_DEATH],
+                          released: [this.INDEX_RELEASED]
+                      }
+                  })
+                  console.log('data', this.data);
               });
           }
         }
