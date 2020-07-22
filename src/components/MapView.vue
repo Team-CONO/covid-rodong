@@ -1,7 +1,9 @@
 <template>
-    <div id="app">
-        <div class="map-wrapper" style="height: 500px">
-            <div id="world-map" style="height: 500px;"></div>
+    <div id="app" class="container">
+        <div class="map-wrapper row" style="height: 500px">
+            <div class="col-md-1"></div>
+            <div id="world-map" class="col-12 col-md-10" style="height: 500px;"></div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </template>
@@ -19,7 +21,8 @@
             }
         },
         mounted() {
-            this.$nextTick(this.initMap);
+            // this.$nextTick(this.initMap);
+            this.initMap();
             this.getCovidData();
         },
 
@@ -28,11 +31,11 @@
                 $('#world-map').vectorMap({
                     map: 'kr_mill',
                 });
-                $('#world-map').vectorMap('get','mapObject').updateSize();
-                $('#world-map').vectorMap('get','mapObject').updateSize();
-                $('#world-map').vectorMap('get','mapObject').updateSize();
-                $('#world-map').vectorMap('get','mapObject').updateSize();
-                $('#world-map').vectorMap('get','mapObject').updateSize();
+                // $('#world-map').vectorMap('get','mapObject').updateSize();
+                // $('#world-map').vectorMap('get','mapObject').updateSize();
+                // $('#world-map').vectorMap('get','mapObject').updateSize();
+                // $('#world-map').vectorMap('get','mapObject').updateSize();
+                // $('#world-map').vectorMap('get','mapObject').updateSize();
             },
           getCovidData: function () {
               $.ajax({
@@ -46,5 +49,4 @@
 </script>
 
 <style scoped>
-
 </style>

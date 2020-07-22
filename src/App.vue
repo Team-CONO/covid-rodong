@@ -42,4 +42,13 @@ export default {
 body{
   background-color: #18191A;
 }
+
+#world-map > div {
+  max-height: 500px !important;
+  height: 500px !important;
+}
+#world-map > div > svg {
+  max-height: 500px !important;
+  height: 500px !important;
+}
 </style>
