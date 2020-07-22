@@ -2,6 +2,7 @@
     <article id="app" data-aos="zoom-in" class="container">
         <div class="row">
             <iframe class="col-12"
+                    height="500"
 
 
                 src="https://www.youtube.com/embed/o-i6jw1t8Yk"></iframe>
