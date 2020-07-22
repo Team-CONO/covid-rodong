@@ -32,6 +32,7 @@
             // this.$nextTick(this.initMap);
             this.initMap();
             this.getCovidData();
+            this.setupColor();
         },
 
         methods: {
@@ -66,7 +67,7 @@
                 const keys = Object.keys(data);
                 return data[keys[keys.length - 1]];
             },
-          getCovidData: function () {
+            getCovidData: function () {
                 return new Promise((resolve, reject) => {
                     $.ajax({
                         url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
@@ -100,15 +101,14 @@
                     });
                 });
 
-          },
-        setupColor: function() {
-                var palette = ['#66C2A5', '#FC8D62', '#8DA0CB', '#E78AC3', '#A6D854'];
+            },
+            setupColor: function() {
+                var palette = ['#ffcccc','#ffff00', '#ff9900', '#ff0000'];
                 var colors = {}, key;
-                
-                for (key in map.regions) {
+
+                for (key in this.getLastData) {
                     colors[key] = palette[Math.floor(Math.random()*palette.length)];
                 }
-                return colors;
             }
         }
     }
