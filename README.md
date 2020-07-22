@@ -20,6 +20,14 @@ https://github.com/LeCoupa/vuedarkmode
 https://github.com/michalsnik/aos
 
     about AOS
+    
+https://github.com/twbs/bootstrap
+
+    about Bootstrap
+    
+https://github.com/bjornd/jvectormap
+
+    about map graph
 
 # License
-This project is licensed under the MIT License - see the [covid-rodong/LICENSE](LICENSE)
+This project is licensed under the GPL-3.0 License - see the [covid-rodong/LICENSE](LICENSE)
