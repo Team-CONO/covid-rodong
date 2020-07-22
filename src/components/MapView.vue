@@ -43,34 +43,45 @@
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
                 // $('#world-map').vectorMap('get','mapObject').updateSize();
+                this.getCovidData()
+                    .then(data => {
+                       console.log('promise data', data);
+                    });
             },
           getCovidData: function () {
-              $.ajax({
-                  url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
-              }).done((data) => {
-                  if (!data) {
-                      return;
-                  }
-                  const splitedData = data.split('\n');
-                  const splitedDataLen = splitedData.length;
-                  const parsedData = splitedData.splice(1, splitedDataLen).map(i => i.split(','))
-                  parsedData.forEach(i => {
-                      if (i[this.INDEX_DATE] === '') {
-                          return;
-                      }
-                      if (!this.data.hasOwnProperty(i[this.INDEX_DATE])) {
-                          this.data[i[this.INDEX_DATE]] = {};
-                      }
-                      this.data[i[this.INDEX_DATE]][i[this.INDEX_REGION]] = {
-                          date: i[this.INDEX_DATE],
-                          region: i[this.INDEX_REGION],
-                          confirm: Number(i[this.INDEX_CONFIRM]),
-                          death: Number(i[this.INDEX_DEATH]),
-                          released: Number(i[this.INDEX_RELEASED])
-                      }
-                  })
-                  console.log('data', this.data);
-              });
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
+                    }).done((data) => {
+                        if (!data) {
+                            reject(new Error('Failed to load data'))
+                            return;
+                        }
+                        const resultData = {};
+                        const splitedData = data.split('\n');
+                        const splitedDataLen = splitedData.length;
+                        const parsedData = splitedData.splice(1, splitedDataLen).map(i => i.split(','))
+                        parsedData.forEach(i => {
+                            if (i[this.INDEX_DATE] === '') {
+                                return;
+                            }
+                            if (!resultData.hasOwnProperty(i[this.INDEX_DATE])) {
+                                resultData[i[this.INDEX_DATE]] = {};
+                            }
+                            resultData[i[this.INDEX_DATE]][i[this.INDEX_REGION]] = {
+                                date: i[this.INDEX_DATE],
+                                region: i[this.INDEX_REGION],
+                                confirm: Number(i[this.INDEX_CONFIRM]),
+                                death: Number(i[this.INDEX_DEATH]),
+                                released: Number(i[this.INDEX_RELEASED])
+                            }
+                        })
+                        resolve(resultData);
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        reject(errorThrown);
+                    });
+                });
+
           }
         }
     }
