@@ -1,26 +1,30 @@
 <template>
     <div id="app" class="container">
         <div class="part" data-aos="flip-down">
-            <h2 style="color:white">대한민국 코로나 바이러스 현황</h2>
+            <h2 style="color:white">대한민국 코로나 바이러스 누적 현황</h2>
         </div>
-        <div class="map-wrapper row" style="height: 500px" data-aos="zoom-out">
+        <div class="map-wrapper row" style="height: 500px" data-aos="zoom-in-down">
             <div class="col-md-1"></div>
             <div id="world-map" class="col-12 col-md-10" style="height: 500px;"></div>
             <div class="col-md-1"></div>
         </div>
         <div class="row" data-aos="fade-up">
             <div class="col-12" style="text-align: right; color: white">
-                색이 진해질수록 확진자가 많음
+                색이 진해질수록 확진자가 많이 나온 지역
             </div>
         </div>
         <div class="row" data-aos="fade-up">
             <div class="col-12" style="text-align: right; color: white">
-                마지막 갱신일 {{covidDataLatestDate}}
+                마지막 갱신일
+                {{covidDataLatestDate}}
             </div>
         </div>
         <div class="row" data-aos="fade-up">
             <div class="col-12" style="height: 15px">
-                <span style="display: inline-block;height: 100%;width: calc(100% / 18);content: ''" v-bind:style="{backgroundColor: color}" v-for="color in palette"> </span>
+                <span
+                    style="display: inline-block;height: 100%;width: calc(100% / 18);content: ''"
+                    v-for="color in palette"
+                    v-bind:style="{backgroundColor: color}"></span>
             </div>
         </div>
     </div>
@@ -34,7 +38,7 @@
     require('../assets/jquery-jvectormap-2.0.5/jquery-jvectormap-kr-mill');
     export default {
         name: "MapView",
-        data () {
+        data() {
             return {
                 data: {},
 
@@ -65,9 +69,26 @@
                 },
 
                 covidDataLatestDate: '',
-                palette: ['#800000', '#A52A2A', '#A0522D', '#8B4513', '#808000', '#D2691E',
-                    '#CD853F', '#B8860B', '#DAA520', '#F4A460', '#BC8F8F', '#D2B48C',
-                    '#DEB887', '#F5DEB3', '#FFDEAD', '#FFE4C4', '#FFEBCD', '#FFF8DC']
+                palette: [
+                    '#800000',
+                    '#A52A2A',
+                    '#A0522D',
+                    '#8B4513',
+                    '#808000',
+                    '#D2691E',
+                    '#CD853F',
+                    '#B8860B',
+                    '#DAA520',
+                    '#F4A460',
+                    '#BC8F8F',
+                    '#D2B48C',
+                    '#DEB887',
+                    '#F5DEB3',
+                    '#FFDEAD',
+                    '#FFE4C4',
+                    '#FFEBCD',
+                    '#FFF8DC'
+                ]
             }
         },
         mounted() {
@@ -76,89 +97,98 @@
         },
 
         methods: {
-            initMap: function() {
+            initMap: function () {
                 const vectorMap = $('#world-map').vectorMap({
                     map: 'kr_mill',
                     backgroundColor: 'none',
                     series: {
-                        regions: [{
-                            attribute: 'fill',
-                        }]
-                    },
+                        regions: [
+                            {
+                                attribute: 'fill'
+                            }
+                        ]
+                    }
                 });
                 // for (let index = 0; index < 17; index++) {
-                //     vectorMap.series.regions[index].setValues(this.setupColor());
-                // }
-                console.log($('#world-map').vectorMap('get','mapObject'))
+                // vectorMap.series.regions[index].setValues(this.setupColor()); }
+                console.log($('#world-map').vectorMap('get', 'mapObject'))
 
-                this.getCovidData()
+                this
+                    .getCovidData()
                     .then(data => {
-                       console.log('promise data', data);
-                       console.log('last key', this.getLastData(data));
-                       const latestData = this.getLastData(data);
-                       this.covidDataLatestDate = this.getLastDate(data);
-                       const regions = Object.keys(latestData);
-                       const sortRegions = [];
-                       regions.forEach(i => sortRegions.push(latestData[i]))
+                        console.log('promise data', data);
+                        console.log('last key', this.getLastData(data));
+                        const latestData = this.getLastData(data);
+                        this.covidDataLatestDate = this.getLastDate(data);
+                        const regions = Object.keys(latestData);
+                        const sortRegions = [];
+                        regions.forEach(i => sortRegions.push(latestData[i]))
                         sortRegions.sort((a, b) => b.confirm - a.confirm);
-                       sortRegions.map(item =>
-                           item.code = this.REGIONS[item.region])
-                       console.log('sorted', sortRegions);
+                        sortRegions.map(item => item.code = this.REGIONS[item.region])
+                        console.log('sorted', sortRegions);
 
-                       const sortDict = {}
-                        // https://www.w3schools.com/colors/colors_groups.asp
-                       ;
-                       sortRegions.forEach((i, index) => {
-                           // console.log('test', i, index)
-                           sortDict[i.code || 'temp'] = this.palette[index]
-                       })
-                        console.log('sortDict',sortDict);
-                        $('#world-map').vectorMap('get','mapObject').series.regions[0]
+                        const sortDict = {}
+                        // https://www.w3schools.com/colors/colors_groups.asp;
+                        sortRegions.forEach((i, index) => {
+                            // console.log('test', i, index)
+                            sortDict[i.code || 'temp'] = this.palette[index]
+                        })
+                        console.log('sortDict', sortDict);
+                        $('#world-map')
+                            .vectorMap('get', 'mapObject')
+                            .series
+                            .regions[0]
                             .setValues(sortDict)
                     });
             },
-            getLastData: function(data) {
+            getLastData: function (data) {
                 return data[this.getLastDate(data)];
             },
-            getLastDate: function(data) {
+            getLastDate: function (data) {
                 const keys = Object.keys(data);
                 return keys[keys.length - 1];
             },
             getCovidData: function () {
                 return new Promise((resolve, reject) => {
-                    $.ajax({
-                        url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_daily.csv",
-                    }).done((data) => {
-                        if (!data) {
-                            reject(new Error('Failed to load data'))
-                            return;
-                        }
-                        const resultData = {};
-                        const splitedData = data.split('\n');
-                        const splitedDataLen = splitedData.length;
-                        const parsedData = splitedData.splice(1, splitedDataLen).map(i => i.split(','))
-                        parsedData.forEach(i => {
-                            if (i[this.INDEX_DATE] === '') {
+                    $
+                        .ajax({
+                            url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_" +
+                                    "daily.csv"
+                        })
+                        .done((data) => {
+                            if (!data) {
+                                reject(new Error('Failed to load data'))
                                 return;
                             }
-                            if (!resultData.hasOwnProperty(i[this.INDEX_DATE])) {
-                                resultData[i[this.INDEX_DATE]] = {};
-                            }
-                            resultData[i[this.INDEX_DATE]][i[this.INDEX_REGION]] = {
-                                date: i[this.INDEX_DATE],
-                                region: i[this.INDEX_REGION],
-                                confirm: Number(i[this.INDEX_CONFIRM]),
-                                death: Number(i[this.INDEX_DEATH]),
-                                released: Number(i[this.INDEX_RELEASED])
-                            }
+                            const resultData = {};
+                            const splitedData = data.split('\n');
+                            const splitedDataLen = splitedData.length;
+                            const parsedData = splitedData
+                                .splice(1, splitedDataLen)
+                                .map(i => i.split(','))
+                            parsedData.forEach(i => {
+                                if (i[this.INDEX_DATE] === '') {
+                                    return;
+                                }
+                                if (!resultData.hasOwnProperty(i[this.INDEX_DATE])) {
+                                    resultData[i[this.INDEX_DATE]] = {};
+                                }
+                                resultData[i[this.INDEX_DATE]][i[this.INDEX_REGION]] = {
+                                    date: i[this.INDEX_DATE],
+                                    region: i[this.INDEX_REGION],
+                                    confirm: Number(i[this.INDEX_CONFIRM]),
+                                    death: Number(i[this.INDEX_DEATH]),
+                                    released: Number(i[this.INDEX_RELEASED])
+                                }
+                            })
+                            resolve(resultData);
                         })
-                        resolve(resultData);
-                    }).fail(function (jqXHR, textStatus, errorThrown) {
-                        reject(errorThrown);
-                    });
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+                            reject(errorThrown);
+                        });
                 });
 
-            },
+            }
         }
     }
 </script>
