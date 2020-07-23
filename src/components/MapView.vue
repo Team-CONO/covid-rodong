@@ -3,10 +3,25 @@
         <div class="part" data-aos="flip-down">
             <h2 style="color:white">대한민국 코로나 바이러스 현황</h2>
         </div>
-        <div class="map-wrapper row" style="height: 500px">
+        <div class="map-wrapper row" style="height: 500px" data-aos="zoom-out">
             <div class="col-md-1"></div>
             <div id="world-map" class="col-12 col-md-10" style="height: 500px;"></div>
             <div class="col-md-1"></div>
+        </div>
+        <div class="row" data-aos="fade-up">
+            <div class="col-12" style="text-align: right; color: white">
+                색이 진해질수록 확진자가 많음
+            </div>
+        </div>
+        <div class="row" data-aos="fade-up">
+            <div class="col-12" style="text-align: right; color: white">
+                마지막 갱신일 {{covidDataLatestDate}}
+            </div>
+        </div>
+        <div class="row" data-aos="fade-up">
+            <div class="col-12" style="height: 15px">
+                <span style="display: inline-block;height: 100%;width: calc(100% / 18);content: ''" v-bind:style="{backgroundColor: color}" v-for="color in palette"> </span>
+            </div>
         </div>
     </div>
 </template>
@@ -47,7 +62,12 @@
                     '제주': 'KR-49',
                     '충남': 'KR-44',
                     '충북': 'KR-43'
-                }
+                },
+
+                covidDataLatestDate: '',
+                palette: ['#800000', '#A52A2A', '#A0522D', '#8B4513', '#808000', '#D2691E',
+                    '#CD853F', '#B8860B', '#DAA520', '#F4A460', '#BC8F8F', '#D2B48C',
+                    '#DEB887', '#F5DEB3', '#FFDEAD', '#FFE4C4', '#FFEBCD', '#FFF8DC']
             }
         },
         mounted() {
@@ -76,6 +96,7 @@
                        console.log('promise data', data);
                        console.log('last key', this.getLastData(data));
                        const latestData = this.getLastData(data);
+                       this.covidDataLatestDate = this.getLastDate(data);
                        const regions = Object.keys(latestData);
                        const sortRegions = [];
                        regions.forEach(i => sortRegions.push(latestData[i]))
@@ -85,11 +106,11 @@
                        console.log('sorted', sortRegions);
 
                        const sortDict = {}
-                       const palette = ['#ff0000', '#ff4000', '##ff8000', '#ffcccc','#ffbf00','#ffff00','#bfff00',
-                           '#80ff00','#40ff00','#00ff00','#00ff40','#00ff80','#00ffbf','#0000ff','#0040ff','#0080ff','#00bfff','#00ffff'];
+                        // https://www.w3schools.com/colors/colors_groups.asp
+                       ;
                        sortRegions.forEach((i, index) => {
                            // console.log('test', i, index)
-                           sortDict[i.code || 'temp'] = palette[index]
+                           sortDict[i.code || 'temp'] = this.palette[index]
                        })
                         console.log('sortDict',sortDict);
                         $('#world-map').vectorMap('get','mapObject').series.regions[0]
@@ -97,8 +118,11 @@
                     });
             },
             getLastData: function(data) {
+                return data[this.getLastDate(data)];
+            },
+            getLastDate: function(data) {
                 const keys = Object.keys(data);
-                return data[keys[keys.length - 1]];
+                return keys[keys.length - 1];
             },
             getCovidData: function () {
                 return new Promise((resolve, reject) => {

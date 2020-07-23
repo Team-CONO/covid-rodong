@@ -60666,7 +60666,7 @@ var content = __webpack_require__(267);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(39)("d6f66b34", content, true, {});
+var update = __webpack_require__(39)("679c40f3", content, true, {});
 
 /***/ }),
 /* 267 */
@@ -60800,7 +60800,7 @@ var content = __webpack_require__(272);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(39)("525ad5a8", content, true, {});
+var update = __webpack_require__(39)("930295e8", content, true, {});
 
 /***/ }),
 /* 272 */
@@ -60905,7 +60905,7 @@ var content = __webpack_require__(278);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(39)("0696814e", content, true, {});
+var update = __webpack_require__(39)("a88bada4", content, true, {});
 
 /***/ }),
 /* 278 */
@@ -61006,7 +61006,7 @@ var content = __webpack_require__(284);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(39)("de5e196e", content, true, {});
+var update = __webpack_require__(39)("dfbb712e", content, true, {});
 
 /***/ }),
 /* 284 */
@@ -61115,6 +61115,21 @@ var Component = normalizeComponent(
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // https://github.com/jooeungen/coronaboard_kr/blob/master/kr_regional_daily.csv
 // https://jvectormap.com/maps/countries/south-korea/
@@ -61151,7 +61166,10 @@ __webpack_require__(294);
                 '제주': 'KR-49',
                 '충남': 'KR-44',
                 '충북': 'KR-43'
-            }
+            },
+
+            covidDataLatestDate: '',
+            palette: ['#800000', '#A52A2A', '#A0522D', '#8B4513', '#808000', '#D2691E', '#CD853F', '#B8860B', '#DAA520', '#F4A460', '#BC8F8F', '#D2B48C', '#DEB887', '#F5DEB3', '#FFDEAD', '#FFE4C4', '#FFEBCD', '#FFF8DC']
         };
     },
     mounted() {
@@ -61179,6 +61197,7 @@ __webpack_require__(294);
                 console.log('promise data', data);
                 console.log('last key', this.getLastData(data));
                 const latestData = this.getLastData(data);
+                this.covidDataLatestDate = this.getLastDate(data);
                 const regions = Object.keys(latestData);
                 const sortRegions = [];
                 regions.forEach(i => sortRegions.push(latestData[i]));
@@ -61186,19 +61205,23 @@ __webpack_require__(294);
                 sortRegions.map(item => item.code = this.REGIONS[item.region]);
                 console.log('sorted', sortRegions);
 
-                const sortDict = {};
-                const palette = ['#ff0000', '#ff4000', '##ff8000', '#ffcccc', '#ffbf00', '#ffff00', '#bfff00', '#80ff00', '#40ff00', '#00ff00', '#00ff40', '#00ff80', '#00ffbf', '#0000ff', '#0040ff', '#0080ff', '#00bfff', '#00ffff'];
+                const sortDict = {}
+                // https://www.w3schools.com/colors/colors_groups.asp
+                ;
                 sortRegions.forEach((i, index) => {
                     // console.log('test', i, index)
-                    sortDict[i.code || 'temp'] = palette[index];
+                    sortDict[i.code || 'temp'] = this.palette[index];
                 });
                 console.log('sortDict', sortDict);
                 $('#world-map').vectorMap('get', 'mapObject').series.regions[0].setValues(sortDict);
             });
         },
         getLastData: function (data) {
+            return data[this.getLastDate(data)];
+        },
+        getLastDate: function (data) {
             const keys = Object.keys(data);
-            return data[keys[keys.length - 1]];
+            return keys[keys.length - 1];
         },
         getCovidData: function () {
             return new Promise((resolve, reject) => {
@@ -61250,8 +61273,8 @@ __webpack_require__(294);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container",attrs:{"id":"app"}},[_c('div',{staticClass:"part",attrs:{"data-aos":"flip-down"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("대한민국 코로나 바이러스 현황")])]),_vm._v(" "),_c('div',{staticClass:"map-wrapper row",staticStyle:{"height":"500px"}},[_c('div',{staticClass:"col-md-1"}),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-10",staticStyle:{"height":"500px"},attrs:{"id":"world-map"}}),_vm._v(" "),_c('div',{staticClass:"col-md-1"})])])}]
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container",attrs:{"id":"app"}},[_vm._m(0),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"text-align":"right","color":"white"}},[_vm._v("\n            마지막 갱신일 "+_vm._s(_vm.covidDataLatestDate)+"\n        ")])]),_vm._v(" "),_c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"height":"15px"}},_vm._l((_vm.palette),function(color){return _c('span',{staticStyle:{"display":"inline-block","height":"100%","width":"calc(100% / 18)","content":"''"},style:({backgroundColor: color})})}),0)])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"part",attrs:{"data-aos":"flip-down"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("대한민국 코로나 바이러스 현황")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"map-wrapper row",staticStyle:{"height":"500px"},attrs:{"data-aos":"zoom-out"}},[_c('div',{staticClass:"col-md-1"}),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-10",staticStyle:{"height":"500px"},attrs:{"id":"world-map"}}),_vm._v(" "),_c('div',{staticClass:"col-md-1"})])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"text-align":"right","color":"white"}},[_vm._v("\n            색이 진해질수록 확진자가 많음\n        ")])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -61298,7 +61321,7 @@ var content = __webpack_require__(298);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(39)("739de2e4", content, true, {});
+var update = __webpack_require__(39)("1ffe4704", content, true, {});
 
 /***/ }),
 /* 298 */
@@ -61434,7 +61457,7 @@ var content = __webpack_require__(306);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(39)("02cdb618", content, true, {});
+var update = __webpack_require__(39)("6ee5f114", content, true, {});
 
 /***/ }),
 /* 306 */
