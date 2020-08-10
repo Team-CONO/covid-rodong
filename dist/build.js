@@ -61194,8 +61194,8 @@ __webpack_require__(294);
             this.getCovidData().then(data => {
                 // console.log('promise data', data); console.log('last key',
                 // this.getLastData(data));
+                this.covidDataLatestDate = this.getLastDate(data).slice(0, 4) + '/' + this.getLastDate(data).slice(4, 6) + '/' + this.getLastDate(data).slice(6);
                 const latestData = this.getLastData(data);
-                this.covidDataLatestDate = this.getLastDate(data);
                 const regions = Object.keys(latestData);
                 const sortRegions = [];
                 regions.forEach(i => sortRegions.push(latestData[i]));
