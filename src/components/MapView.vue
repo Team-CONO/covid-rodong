@@ -6,14 +6,11 @@
         <div class="map-wrapper row" style="height: 500px" data-aos="zoom-in-down">
             <div class="col-md-1"></div>
             <div id="world-map" class="col-12 col-md-10" style="height: 500px;"></div>
-            <div class="col-md-1"></div>
         </div>
         <div class="row" data-aos="fade-up">
             <div class="col-12" style="text-align: right; color: white">
-                색이 진해질수록 확진자가 많이 나온 지역
+                색이 진한 곳일수록 확진자가 많이 나온 지역
             </div>
-        </div>
-        <div class="row" data-aos="fade-up">
             <div class="col-12" style="text-align: right; color: white">
                 마지막 갱신일
                 {{covidDataLatestDate}}
@@ -22,7 +19,7 @@
         <div class="row" data-aos="fade-up">
             <div class="col-12" style="height: 15px">
                 <span
-                    style="display: inline-block;height: 100%;width: calc(100% / 18);content: ''"
+                    style="display: inline-block; height: 100%; width: calc(100% / 18);"
                     v-for="color in palette"
                     v-bind:style="{backgroundColor: color}"></span>
             </div>
@@ -34,20 +31,21 @@
     // https://github.com/jooeungen/coronaboard_kr/blob/master/kr_regional_daily.csv
     // https://jvectormap.com/maps/countries/south-korea/
     // https://smarttutorials.net/how-to-integrate-jvectormap-with-vuejs-using-vuecli-jquery/
+    import $ from 'jquery';
     require('jvectormap');
     require('../assets/jquery-jvectormap-2.0.5/jquery-jvectormap-kr-mill');
+
     export default {
-        name: "MapView",
         data() {
             return {
                 data: {},
+                covidDataLatestDate: '',
 
                 INDEX_DATE: 0,
                 INDEX_REGION: 1,
                 INDEX_CONFIRM: 2,
                 INDEX_DEATH: 3,
                 INDEX_RELEASED: 4,
-
                 REGIONS: {
                     '강원': 'KR-42',
                     '경기': 'KR-41',
@@ -67,8 +65,6 @@
                     '충남': 'KR-44',
                     '충북': 'KR-43'
                 },
-
-                covidDataLatestDate: '',
                 palette: [
                     '#800000',
                     '#A52A2A',
@@ -95,10 +91,9 @@
             this.initMap();
             this.getCovidData();
         },
-
         methods: {
             initMap: function () {
-                const vectorMap = $('#world-map').vectorMap({
+                $('#world-map').vectorMap({
                     map: 'kr_mill',
                     backgroundColor: 'none',
                     series: {
@@ -109,15 +104,13 @@
                         ]
                     }
                 });
-                // for (let index = 0; index < 17; index++) {
-                // vectorMap.series.regions[index].setValues(this.setupColor()); }
-                console.log($('#world-map').vectorMap('get', 'mapObject'))
+                // console.log($('#world-map').vectorMap('get', 'mapObject'))
 
                 this
                     .getCovidData()
                     .then(data => {
-                        console.log('promise data', data);
-                        console.log('last key', this.getLastData(data));
+                        // console.log('promise data', data); console.log('last key',
+                        // this.getLastData(data));
                         const latestData = this.getLastData(data);
                         this.covidDataLatestDate = this.getLastDate(data);
                         const regions = Object.keys(latestData);
@@ -125,7 +118,7 @@
                         regions.forEach(i => sortRegions.push(latestData[i]))
                         sortRegions.sort((a, b) => b.confirm - a.confirm);
                         sortRegions.map(item => item.code = this.REGIONS[item.region])
-                        console.log('sorted', sortRegions);
+                        // console.log('sorted', sortRegions);
 
                         const sortDict = {}
                         // https://www.w3schools.com/colors/colors_groups.asp;
@@ -133,7 +126,7 @@
                             // console.log('test', i, index)
                             sortDict[i.code || 'temp'] = this.palette[index]
                         })
-                        console.log('sortDict', sortDict);
+                        // console.log('sortDict', sortDict);
                         $('#world-map')
                             .vectorMap('get', 'mapObject')
                             .series
@@ -150,8 +143,7 @@
             },
             getCovidData: function () {
                 return new Promise((resolve, reject) => {
-                    $
-                        .ajax({
+                    $.ajax({
                             url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_" +
                                     "daily.csv"
                         })
@@ -187,7 +179,6 @@
                             reject(errorThrown);
                         });
                 });
-
             }
         }
     }
