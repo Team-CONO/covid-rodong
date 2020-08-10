@@ -112,7 +112,13 @@
                         // console.log('promise data', data); console.log('last key',
                         // this.getLastData(data));
                         const latestData = this.getLastData(data);
-                        this.covidDataLatestDate = this.getLastDate(data);
+                        this.covidDataLatestDate = this
+                            .getLastDate(data)
+                            .slice(0, 4) + '/' + this
+                            .getLastDate(data)
+                            .slice(4, 6) + '/' + this
+                            .getLastDate(data)
+                            .slice(6,);
                         const regions = Object.keys(latestData);
                         const sortRegions = [];
                         regions.forEach(i => sortRegions.push(latestData[i]))
@@ -143,7 +149,8 @@
             },
             getCovidData: function () {
                 return new Promise((resolve, reject) => {
-                    $.ajax({
+                    $
+                        .ajax({
                             url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_" +
                                     "daily.csv"
                         })

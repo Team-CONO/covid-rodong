@@ -61102,9 +61102,8 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 //
 //
 //
@@ -61138,20 +61137,21 @@ var Component = normalizeComponent(
 // https://github.com/jooeungen/coronaboard_kr/blob/master/kr_regional_daily.csv
 // https://jvectormap.com/maps/countries/south-korea/
 // https://smarttutorials.net/how-to-integrate-jvectormap-with-vuejs-using-vuecli-jquery/
+
 __webpack_require__(118);
 __webpack_require__(294);
+
 /* harmony default export */ __webpack_exports__["a"] = ({
-    name: "MapView",
     data() {
         return {
             data: {},
+            covidDataLatestDate: '',
 
             INDEX_DATE: 0,
             INDEX_REGION: 1,
             INDEX_CONFIRM: 2,
             INDEX_DEATH: 3,
             INDEX_RELEASED: 4,
-
             REGIONS: {
                 '강원': 'KR-42',
                 '경기': 'KR-41',
@@ -61171,8 +61171,6 @@ __webpack_require__(294);
                 '충남': 'KR-44',
                 '충북': 'KR-43'
             },
-
-            covidDataLatestDate: '',
             palette: ['#800000', '#A52A2A', '#A0522D', '#8B4513', '#808000', '#D2691E', '#CD853F', '#B8860B', '#DAA520', '#F4A460', '#BC8F8F', '#D2B48C', '#DEB887', '#F5DEB3', '#FFDEAD', '#FFE4C4', '#FFEBCD', '#FFF8DC']
         };
     },
@@ -61180,10 +61178,9 @@ __webpack_require__(294);
         this.initMap();
         this.getCovidData();
     },
-
     methods: {
         initMap: function () {
-            const vectorMap = $('#world-map').vectorMap({
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#world-map').vectorMap({
                 map: 'kr_mill',
                 backgroundColor: 'none',
                 series: {
@@ -61192,13 +61189,11 @@ __webpack_require__(294);
                     }]
                 }
             });
-            // for (let index = 0; index < 17; index++) {
-            // vectorMap.series.regions[index].setValues(this.setupColor()); }
-            console.log($('#world-map').vectorMap('get', 'mapObject'));
+            // console.log($('#world-map').vectorMap('get', 'mapObject'))
 
             this.getCovidData().then(data => {
-                console.log('promise data', data);
-                console.log('last key', this.getLastData(data));
+                // console.log('promise data', data); console.log('last key',
+                // this.getLastData(data));
                 const latestData = this.getLastData(data);
                 this.covidDataLatestDate = this.getLastDate(data);
                 const regions = Object.keys(latestData);
@@ -61206,7 +61201,7 @@ __webpack_require__(294);
                 regions.forEach(i => sortRegions.push(latestData[i]));
                 sortRegions.sort((a, b) => b.confirm - a.confirm);
                 sortRegions.map(item => item.code = this.REGIONS[item.region]);
-                console.log('sorted', sortRegions);
+                // console.log('sorted', sortRegions);
 
                 const sortDict = {};
                 // https://www.w3schools.com/colors/colors_groups.asp;
@@ -61214,8 +61209,8 @@ __webpack_require__(294);
                     // console.log('test', i, index)
                     sortDict[i.code || 'temp'] = this.palette[index];
                 });
-                console.log('sortDict', sortDict);
-                $('#world-map').vectorMap('get', 'mapObject').series.regions[0].setValues(sortDict);
+                // console.log('sortDict', sortDict);
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#world-map').vectorMap('get', 'mapObject').series.regions[0].setValues(sortDict);
             });
         },
         getLastData: function (data) {
@@ -61227,7 +61222,7 @@ __webpack_require__(294);
         },
         getCovidData: function () {
             return new Promise((resolve, reject) => {
-                $.ajax({
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
                     url: "https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_regional_" + "daily.csv"
                 }).done(data => {
                     if (!data) {
@@ -61261,7 +61256,6 @@ __webpack_require__(294);
         }
     }
 });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(42)))
 
 /***/ }),
 /* 294 */
@@ -61275,8 +61269,8 @@ __webpack_require__(294);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container",attrs:{"id":"app"}},[_vm._m(0),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"text-align":"right","color":"white"}},[_vm._v("\n            마지막 갱신일\n            "+_vm._s(_vm.covidDataLatestDate)+"\n        ")])]),_vm._v(" "),_c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"height":"15px"}},_vm._l((_vm.palette),function(color){return _c('span',{staticStyle:{"display":"inline-block","height":"100%","width":"calc(100% / 18)","content":"''"},style:({backgroundColor: color})})}),0)])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"part",attrs:{"data-aos":"flip-down"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("대한민국 코로나 바이러스 누적 현황")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"map-wrapper row",staticStyle:{"height":"500px"},attrs:{"data-aos":"zoom-in-down"}},[_c('div',{staticClass:"col-md-1"}),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-10",staticStyle:{"height":"500px"},attrs:{"id":"world-map"}}),_vm._v(" "),_c('div',{staticClass:"col-md-1"})])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"text-align":"right","color":"white"}},[_vm._v("\n            색이 진해질수록 확진자가 많이 나온 지역\n        ")])])}]
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container",attrs:{"id":"app"}},[_vm._m(0),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"text-align":"right","color":"white"}},[_vm._v("\n            색이 진한 곳일수록 확진자가 많이 나온 지역\n        ")]),_vm._v(" "),_c('div',{staticClass:"col-12",staticStyle:{"text-align":"right","color":"white"}},[_vm._v("\n            마지막 갱신일\n            "+_vm._s(_vm.covidDataLatestDate)+"\n        ")])]),_vm._v(" "),_c('div',{staticClass:"row",attrs:{"data-aos":"fade-up"}},[_c('div',{staticClass:"col-12",staticStyle:{"height":"15px"}},_vm._l((_vm.palette),function(color){return _c('span',{staticStyle:{"display":"inline-block","height":"100%","width":"calc(100% / 18)"},style:({backgroundColor: color})})}),0)])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"part",attrs:{"data-aos":"flip-down"}},[_c('h2',{staticStyle:{"color":"white"}},[_vm._v("대한민국 코로나 바이러스 누적 현황")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"map-wrapper row",staticStyle:{"height":"500px"},attrs:{"data-aos":"zoom-in-down"}},[_c('div',{staticClass:"col-md-1"}),_vm._v(" "),_c('div',{staticClass:"col-12 col-md-10",staticStyle:{"height":"500px"},attrs:{"id":"world-map"}})])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
