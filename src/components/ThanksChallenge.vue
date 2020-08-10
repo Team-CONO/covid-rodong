@@ -17,7 +17,6 @@
     </article>
 </template>
 
-
 <style>
     .tyImg {
         background-image: url("../assets/thanks.png");
